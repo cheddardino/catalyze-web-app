@@ -11,6 +11,10 @@
   ],
   "routes": [
     {
+      "src": "/bundle.(.*).js",
+      "dest": "/bundle.$1.js"
+    },
+    {
       "src": "/(.*)",
       "dest": "/index.html"
     }
