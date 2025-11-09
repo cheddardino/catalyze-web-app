@@ -1,0 +1,30 @@
+{
+  "name": "catalyze-frontend",
+  "version": "1.0.0",
+  "description": "Catalyze Web Frontend",
+  "main": "src/main.ts",
+  "scripts": {
+    "start": "webpack serve --mode development --open",
+    "build": "webpack --mode production",
+    "watch": "webpack --watch"
+  },
+  "keywords": ["catalyze", "health", "pet"],
+  "author": "Catalyze Team",
+  "license": "ISC",
+  "dependencies": {
+    "css-loader": "^7.1.2",
+    "date-fns": "^4.1.0",
+    "html-webpack-plugin": "^5.6.4",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.4",
+    "typescript": "^4.9.5",
+    "webpack": "^5.102.1",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^3.11.3"
+  },
+  "devDependencies": {
+    "@types/node": "^14.18.63",
+    "@types/webpack-env": "^1.15.0"
+  },
+  "type": "commonjs"
+}
