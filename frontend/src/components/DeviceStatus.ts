@@ -49,16 +49,6 @@ export class DeviceStatus extends Component {
           </div>
           <div class="metric-value">${device.wasteLevel}%</div>
         </div>
-
-        ${device.batteryLevel ? `
-          <div class="device-metric">
-            <div class="metric-label">Battery</div>
-            <div class="metric-bar">
-              <div class="metric-fill" style="width: ${device.batteryLevel}%; background-color: var(--secondary-color);"></div>
-            </div>
-            <div class="metric-value">${device.batteryLevel}%</div>
-          </div>
-        ` : ''}
       </div>
 
       ${device.lastCleaned ? `

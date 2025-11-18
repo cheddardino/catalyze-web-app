@@ -31,8 +31,7 @@ export const mockDevices: Device[] = [
     firmwareVersion: '2.1.0',
     litterLevel: 75,
     wasteLevel: 45,
-    lastCleaned: '2024-11-09T08:30:00Z',
-    batteryLevel: 92
+    lastCleaned: '2024-11-09T08:30:00Z'
   }
 ];
 
