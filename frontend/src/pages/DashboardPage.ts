@@ -46,6 +46,7 @@ export class DashboardPage extends Component {
     const stats = [
       new StatCard({
         icon: '●',
+        iconImage: '/assets/logo-cycle.png',
         label: 'Cleaning Cycles',
         value: mockCleaningCycles.total,
         trend: 'up',
@@ -62,12 +63,14 @@ export class DashboardPage extends Component {
       }),
       new StatCard({
         icon: '◆',
+        iconImage: '/assets/logo-notif.png',
         label: 'Notifications',
         value: unreadNotifs.length,
         color: 'var(--warning-color)'
       }),
       new StatCard({
         icon: '■',
+        iconImage: '/assets/logo-device.png',
         label: 'Devices',
         value: mockDevices.filter(d => d.status === 'online').length + '/' + mockDevices.length,
         color: 'var(--primary-color)'

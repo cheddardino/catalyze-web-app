@@ -7,6 +7,7 @@ export interface StatCardProps {
   trend?: 'up' | 'down' | 'neutral';
   trendValue?: string;
   color?: string;
+  iconImage?: string;
 }
 
 export class StatCard extends Component {
@@ -21,9 +22,13 @@ export class StatCard extends Component {
     const card = this.element;
     const color = this.props.color || 'var(--primary-color)';
 
+    const iconContent = this.props.iconImage 
+      ? `<img src="${this.props.iconImage}" alt="${this.props.label}" style="width: 24px; height: 24px; object-fit: contain;" />`
+      : this.props.icon;
+
     card.innerHTML = `
       <div class="stat-icon" style="background-color: ${color}20; color: ${color};">
-        ${this.props.icon}
+        ${iconContent}
       </div>
       <div class="stat-content">
         <div class="stat-label">${this.props.label}</div>
