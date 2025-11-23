@@ -81,9 +81,9 @@ export class DevicesPage extends Component {
         </div>
       </div>
       <div class="device-card-actions">
-        <button class="btn-icon" title="Settings">⚙️</button>
-        <button class="btn-icon" title="Details">📊</button>
-        <button class="btn-icon" title="Remove">🗑️</button>
+        <button class="btn-icon" title="Settings">⋮</button>
+        <button class="btn-icon" title="Details">◆</button>
+        <button class="btn-icon" title="Remove">×</button>
       </div>
     `;
 
@@ -117,7 +117,7 @@ export class DevicesPage extends Component {
       text: 'Start Pairing',
       variant: 'primary',
       onClick: () => {
-        alert('🔄 Searching for devices...\n\nThis would normally connect to your device via Bluetooth or WiFi.');
+        alert('Searching for devices...\n\nThis would normally connect to your device via Bluetooth or WiFi.');
       }
     });
     pairBtn.mount(buttonContainer);
@@ -181,7 +181,7 @@ export class DevicesPage extends Component {
       text: 'Save Changes',
       variant: 'primary',
       onClick: () => {
-        alert('✅ Settings saved successfully!');
+        alert('Settings saved successfully!');
         const modal = document.querySelector('.modal');
         if (modal) modal.remove();
       }
@@ -294,7 +294,7 @@ export class DevicesPage extends Component {
       text: 'Remove Device',
       variant: 'danger',
       onClick: () => {
-        alert('🗑️ Device removed successfully!');
+        alert('Device removed successfully!');
         const modal = document.querySelector('.modal');
         if (modal) modal.remove();
       }

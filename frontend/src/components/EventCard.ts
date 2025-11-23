@@ -27,24 +27,26 @@ export class EventCard extends Component {
     const hasAnomaly = event.screeningResult && 
                        event.screeningResult.anomalies.length > 0;
 
+    const typeLabel = event.type === 'defecation' ? 'Defecation' : 'Urination';
+    const typeIcon = event.type === 'defecation' ? '●' : '○';
+
     card.innerHTML = `
-      <div class="event-cat-icon">${cat?.photoUrl || '🐱'}</div>
+      <div class="event-cat-icon">${cat?.name?.charAt(0).toUpperCase() || 'C'}</div>
       <div class="event-content">
         <div class="event-header">
           <span class="event-cat-name">${cat?.name || 'Unknown'}</span>
           <span class="event-time">${time}</span>
         </div>
         <div class="event-type">
-          ${event.type === 'defecation' ? '💩' : '💧'} 
-          ${event.type === 'defecation' ? 'Defecation' : 'Urination'}
+          ${typeIcon} ${typeLabel}
         </div>
         ${hasAnomaly ? `
           <div class="event-alert">
-            ⚠️ ${event.screeningResult!.anomalies[0]}
+            ${event.screeningResult!.anomalies[0]}
           </div>
         ` : ''}
       </div>
-      ${event.imageUrl ? '<div class="event-image">📷</div>' : ''}
+      ${event.imageUrl ? '<div class="event-image">◆</div>' : ''}
     `;
 
     if (this.props.onClick) {

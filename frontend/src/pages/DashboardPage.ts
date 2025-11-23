@@ -45,7 +45,7 @@ export class DashboardPage extends Component {
 
     const stats = [
       new StatCard({
-        icon: '🧹',
+        icon: '●',
         label: 'Cleaning Cycles',
         value: mockCleaningCycles.total,
         trend: 'up',
@@ -53,21 +53,21 @@ export class DashboardPage extends Component {
         color: 'var(--primary-color)'
       }),
       new StatCard({
-        icon: '📊',
+        icon: '▲',
         label: 'Today\'s Events',
         value: todayEvents.length,
         trend: 'neutral',
         trendValue: 'Normal',
-        color: 'var(--secondary-color)'
+        color: 'var(--info-color)'
       }),
       new StatCard({
-        icon: '🔔',
+        icon: '◆',
         label: 'Notifications',
         value: unreadNotifs.length,
         color: 'var(--warning-color)'
       }),
       new StatCard({
-        icon: '🔧',
+        icon: '■',
         label: 'Devices',
         value: mockDevices.filter(d => d.status === 'online').length + '/' + mockDevices.length,
         color: 'var(--primary-color)'
@@ -87,14 +87,14 @@ export class DashboardPage extends Component {
 
     // Usage Chart Card
     const usageCard = new Card({
-      title: '📈 Cleaning Frequency',
+      title: 'Cleaning Frequency',
       content: new UsageChart({ days: 7 }).render()
     });
     usageCard.mount(leftColumn);
 
     // Quick Actions Card
     const actionsCard = new Card({
-      title: '⚡ Quick Actions',
+      title: 'Quick Actions',
       content: this.renderQuickActions()
     });
     actionsCard.mount(leftColumn);
@@ -107,7 +107,7 @@ export class DashboardPage extends Component {
 
     // Anomaly Detection History
     const anomalyCard = new Card({
-      title: '⚠️ Anomaly Detection History',
+      title: 'Anomaly Detection',
       content: this.renderAnomalies()
     });
     anomalyCard.mount(rightColumn);
@@ -134,10 +134,10 @@ export class DashboardPage extends Component {
       item.style.borderBottom = '1px solid var(--gray-200)';
       item.innerHTML = `
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-          <span style="font-weight: 500; color: var(--danger-color);">⚠️ Issue Detected</span>
-          <span style="font-size: 0.85rem; color: var(--gray-500);">${new Date(anomaly.timestamp).toLocaleDateString()}</span>
+          <span style="font-weight: 500; color: var(--danger-color);">Issue Detected</span>
+          <span style="font-size: 0.85rem; color: var(--text-tertiary);">${new Date(anomaly.timestamp).toLocaleDateString()}</span>
         </div>
-        <div style="color: var(--gray-700);">${anomaly.description}</div>
+        <div style="color: var(--text-secondary);">${anomaly.description}</div>
       `;
       container.appendChild(item);
     });
@@ -151,22 +151,22 @@ export class DashboardPage extends Component {
 
     const actions = [
       {
-        icon: '📸',
+        icon: '',
         text: 'View Health Events',
         onClick: () => router.navigate('/health')
       },
       {
-        icon: '🔧',
+        icon: '',
         text: 'Manage Devices',
         onClick: () => router.navigate('/devices')
       },
       {
-        icon: '📋',
+        icon: '',
         text: 'Generate Report',
         onClick: () => router.navigate('/reports')
       },
       {
-        icon: '⚙️',
+        icon: '',
         text: 'Settings',
         onClick: () => router.navigate('/settings')
       }

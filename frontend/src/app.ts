@@ -40,9 +40,9 @@ export default class App {
 
     // Create navbar
     const navItems: NavItem[] = [
-      { text: 'Dashboard', path: '/', icon: '📊' },
-      { text: 'Health', path: '/health', icon: '❤️' },
-      { text: 'Settings', path: '/settings', icon: '⚙️' }
+      { text: 'Dashboard', path: '/', icon: '' },
+      { text: 'Health', path: '/health', icon: '' },
+      { text: 'Settings', path: '/settings', icon: '' }
     ];
 
     const navbar = new Navbar({
@@ -71,9 +71,9 @@ export default class App {
 
     // Create navbar
     const navItems: NavItem[] = [
-      { text: 'Dashboard', path: '/', icon: '📊' },
-      { text: 'Health', path: '/health', icon: '❤️' },
-      { text: 'Settings', path: '/settings', icon: '⚙️' }
+      { text: 'Dashboard', path: '/', icon: '' },
+      { text: 'Health', path: '/health', icon: '' },
+      { text: 'Settings', path: '/settings', icon: '' }
     ];
 
     const navbar = new Navbar({
@@ -120,7 +120,7 @@ export default class App {
     // Desktop button
     const desktopBtn = new Button({
       text: 'Desktop',
-      icon: '🖥️',
+      icon: '',
       variant: 'primary',
       size: 'large',
       onClick: () => {
@@ -134,7 +134,7 @@ export default class App {
     // Tablet button
     const tabletBtn = new Button({
       text: 'Tablet',
-      icon: '📱',
+      icon: '',
       variant: 'secondary',
       size: 'large',
       onClick: () => {
@@ -148,7 +148,7 @@ export default class App {
     // Mobile button
     const mobileBtn = new Button({
       text: 'Mobile',
-      icon: '📱',
+      icon: '',
       variant: 'outline',
       size: 'large',
       onClick: () => {

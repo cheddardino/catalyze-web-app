@@ -27,7 +27,7 @@ export class SettingsPage extends Component {
     sectionsContainer.className = 'settings-container';
 
     // Profile Section
-    const profileSection = this.createSection('👤 Profile', [
+    const profileSection = this.createSection('Profile', [
       this.createInput('Full Name', 'John Doe'),
       this.createInput('Email', 'john.doe@example.com'),
       this.createInput('Phone', '+1 (555) 123-4567')
@@ -35,7 +35,7 @@ export class SettingsPage extends Component {
     sectionsContainer.appendChild(profileSection);
 
     // Notifications Section
-    const notificationsSection = this.createSection('🔔 Notifications', [
+    const notificationsSection = this.createSection('Notifications', [
       this.createToggle('Event Notifications', true),
       this.createToggle('Anomaly Alerts', true),
       this.createToggle('Device Status Updates', false),
@@ -44,7 +44,7 @@ export class SettingsPage extends Component {
     sectionsContainer.appendChild(notificationsSection);
 
     // Preferences Section
-    const preferencesSection = this.createSection('⚙️ Preferences', [
+    const preferencesSection = this.createSection('Preferences', [
       this.createDropdown('Time Zone', ['UTC-8 Pacific', 'UTC-5 Eastern', 'UTC+0 GMT']),
       this.createDropdown('Date Format', ['MM/DD/YYYY', 'DD/MM/YYYY', 'YYYY-MM-DD']),
       this.createDropdown('Temperature Unit', ['Celsius', 'Fahrenheit'])
@@ -52,7 +52,7 @@ export class SettingsPage extends Component {
     sectionsContainer.appendChild(preferencesSection);
 
     // Privacy Section
-    const privacySection = this.createSection('🔒 Privacy & Security', [
+    const privacySection = this.createSection('Privacy & Security', [
       this.createToggle('Share Data with Vets', true),
       this.createToggle('Anonymous Usage Statistics', false),
       this.createButton('Change Password', 'outline'),
@@ -70,7 +70,7 @@ export class SettingsPage extends Component {
       text: 'Save Changes',
       variant: 'primary',
       onClick: () => {
-        alert('✅ Settings saved successfully!');
+        alert('Settings saved successfully!');
       }
     });
     saveBtn.mount(actionsContainer);
@@ -80,7 +80,7 @@ export class SettingsPage extends Component {
       variant: 'outline',
       onClick: () => {
         if (confirm('Are you sure you want to reset all settings to defaults?')) {
-          alert('🔄 Settings reset to defaults!');
+          alert('Settings reset to defaults!');
         }
       }
     });

@@ -1,58 +1,87 @@
 export const COLORS = {
-  primary: '#2196F3',
-  primaryDark: '#1976D2',
-  primaryLight: '#BBDEFB',
-  success: '#4CAF50',
-  warning: '#FFC107',
-  error: '#F44336',
-  info: '#2196F3',
-  alertCritical: '#F44336',
-  alertImportant: '#FFC107',
-  alertNormal: '#4CAF50',
+  // Brand colors - Supabase inspired
+  primary: '#3ECF8E',
+  primaryDark: '#2DA771',
+  primaryLight: '#7DDDB4',
+  brandAccent: '#F4FFFC',
+  
+  // Semantic colors
+  success: '#3ECF8E',
+  warning: '#F5B70F',
+  error: '#F04438',
+  info: '#6366F1',
+  
+  // Alert levels
+  alertCritical: '#F04438',
+  alertImportant: '#F5B70F',
+  alertNormal: '#3ECF8E',
+  
+  // Grayscale - Dark theme optimized
   black: '#000000',
   white: '#FFFFFF',
-  gray900: '#212121',
-  gray800: '#424242',
-  gray700: '#616161',
-  gray600: '#757575',
-  gray500: '#9E9E9E',
-  gray400: '#BDBDBD',
-  gray300: '#E0E0E0',
-  gray200: '#EEEEEE',
-  gray100: '#F5F5F5',
-  gray: '#9E9E9E',
-  surface: '#FFFFFF',
-  cardBackground: '#FFFFFF',
-  border: '#E0E0E0',
-  background: '#FFFFFF',
-  backgroundSecondary: '#F5F5F5',
-  textPrimary: '#212121',
-  textSecondary: '#757575',
-  textDisabled: '#BDBDBD',
-  textInverse: '#FFFFFF',
-  text: '#212121',
+  gray50: '#FAFAFA',
+  gray100: '#F4F5F7',
+  gray200: '#E5E7EB',
+  gray300: '#D1D5DB',
+  gray400: '#9CA3AF',
+  gray500: '#6B7280',
+  gray600: '#4B5563',
+  gray700: '#374151',
+  gray800: '#1F2937',
+  gray900: '#111827',
+  gray950: '#0A0A0A',
+  
+  // Dark theme backgrounds
+  background: '#0F1419',
+  backgroundSecondary: '#1A1F26',
+  backgroundTertiary: '#232930',
+  
+  // Surface colors
+  surface: '#1A1F26',
+  surfaceHover: '#232930',
+  cardBackground: '#1A1F26',
+  
+  // Borders
+  border: '#2D3748',
+  borderLight: '#374151',
+  borderHover: '#4B5563',
+  
+  // Text colors
+  textPrimary: '#F9FAFB',
+  textSecondary: '#9CA3AF',
+  textTertiary: '#6B7280',
+  textDisabled: '#4B5563',
+  textInverse: '#111827',
+  text: '#F9FAFB',
 };
 
 export const TYPOGRAPHY = {
+  fontFamily: {
+    sans: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif',
+    mono: '"SF Mono", "Monaco", "Inconsolata", "Fira Code", "Droid Sans Mono", monospace',
+  },
   h1: {
-    fontSize: 32,
-    fontWeight: '700',
-    lineHeight: 40,
+    fontSize: 36,
+    fontWeight: '600',
+    lineHeight: 44,
+    letterSpacing: '-0.02em',
   },
   h2: {
-    fontSize: 24,
-    fontWeight: '700',
-    lineHeight: 32,
+    fontSize: 28,
+    fontWeight: '600',
+    lineHeight: 36,
+    letterSpacing: '-0.01em',
   },
   h3: {
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: '600',
-    lineHeight: 28,
+    lineHeight: 30,
+    letterSpacing: '-0.01em',
   },
   h4: {
     fontSize: 18,
     fontWeight: '600',
-    lineHeight: 24,
+    lineHeight: 26,
   },
   subtitle1: {
     fontSize: 16,
@@ -65,12 +94,12 @@ export const TYPOGRAPHY = {
     lineHeight: 20,
   },
   body1: {
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: '400',
     lineHeight: 24,
   },
   body2: {
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: '400',
     lineHeight: 20,
   },
@@ -80,26 +109,28 @@ export const TYPOGRAPHY = {
     lineHeight: 16,
   },
   button: {
-    fontSize: 16,
-    fontWeight: '600',
-    lineHeight: 24,
+    fontSize: 14,
+    fontWeight: '500',
+    lineHeight: 20,
   },
 };
 
 export const SPACING = {
   xs: 4,
   sm: 8,
-  md: 16,
-  lg: 24,
-  xl: 32,
-  xxl: 48,
+  md: 12,
+  lg: 16,
+  xl: 24,
+  xxl: 32,
+  xxxl: 48,
 };
 
 export const RADIUS = {
-  sm: 4,
+  sm: 6,
   md: 8,
   lg: 12,
   xl: 16,
+  xxl: 20,
   round: 9999,
 };
 

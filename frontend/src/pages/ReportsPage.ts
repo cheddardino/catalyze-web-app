@@ -27,7 +27,7 @@ export class ReportsPage extends Component {
 
     const exportButton = new Button({
       text: 'Export PDF',
-      icon: '📄',
+      icon: '',
       variant: 'outline',
       onClick: () => this.exportReport()
     });
@@ -104,11 +104,11 @@ export class ReportsPage extends Component {
     const days = this.selectedPeriod === 'week' ? 7 : this.selectedPeriod === 'month' ? 30 : 90;
 
     const summaryData = [
-      { title: 'Total Events', value: events.length, icon: '📊', color: 'var(--primary-color)' },
-      { title: 'Urinations', value: urinations, icon: '💧', color: 'var(--primary-color)' },
-      { title: 'Defecations', value: defecations, icon: '💩', color: 'var(--secondary-color)' },
-      { title: 'Anomalies Detected', value: anomalies, icon: '⚠️', color: 'var(--warning-color)' },
-      { title: 'Daily Average', value: (events.length / days).toFixed(1), icon: '📈', color: 'var(--gray-700)' }
+      { title: 'Total Events', value: events.length, icon: '■', color: 'var(--primary-color)' },
+      { title: 'Urinations', value: urinations, icon: '○', color: 'var(--info-color)' },
+      { title: 'Defecations', value: defecations, icon: '●', color: 'var(--primary-color)' },
+      { title: 'Anomalies Detected', value: anomalies, icon: '▲', color: 'var(--warning-color)' },
+      { title: 'Daily Average', value: (events.length / days).toFixed(1), icon: '◆', color: 'var(--text-secondary)' }
     ];
 
     summaryData.forEach(item => {
@@ -139,31 +139,31 @@ export class ReportsPage extends Component {
     const insightsCard = document.createElement('div');
     insightsCard.className = 'card';
     insightsCard.innerHTML = `
-      <h3 class="card-title">💡 Health Insights</h3>
+      <h3 class="card-title">Health Insights</h3>
       <div class="insights-list">
         <div class="insight-item insight-success">
-          <div class="insight-icon">✅</div>
+          <div class="insight-icon">✓</div>
           <div class="insight-content">
             <div class="insight-title">Normal Activity Levels</div>
             <div class="insight-description">Your cats are showing consistent bathroom habits.</div>
           </div>
         </div>
         <div class="insight-item insight-warning">
-          <div class="insight-icon">⚠️</div>
+          <div class="insight-icon">!</div>
           <div class="insight-content">
             <div class="insight-title">Color Variation Detected</div>
             <div class="insight-description">Whiskers had 2 events with unusual stool color. Consider veterinary consultation.</div>
           </div>
         </div>
         <div class="insight-item insight-info">
-          <div class="insight-icon">ℹ️</div>
+          <div class="insight-icon">i</div>
           <div class="insight-content">
             <div class="insight-title">Hydration Reminder</div>
             <div class="insight-description">Ensure fresh water is available. Urination frequency is within normal range.</div>
           </div>
         </div>
         <div class="insight-item insight-success">
-          <div class="insight-icon">📊</div>
+          <div class="insight-icon">■</div>
           <div class="insight-content">
             <div class="insight-title">Monitoring Active</div>
             <div class="insight-description">All devices are online and collecting data successfully.</div>
