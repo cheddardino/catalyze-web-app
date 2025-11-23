@@ -21,3 +21,5 @@ export { EventDetail } from './EventDetail';
 export type { EventDetailProps } from './EventDetail';
 export { HealthChart } from './HealthChart';
 export type { HealthChartProps } from './HealthChart';
+export { UsageChart } from './UsageChart';
+export type { UsageChartProps } from './UsageChart';

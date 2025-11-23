@@ -40,8 +40,7 @@ export default class App {
 
     // Create navbar
     const navItems: NavItem[] = [
-      { text: 'Home', path: '/', icon: '🏠' },
-      { text: 'Dashboard', path: '/dashboard', icon: '📊' },
+      { text: 'Dashboard', path: '/', icon: '📊' },
       { text: 'Health', path: '/health', icon: '❤️' },
       { text: 'Settings', path: '/settings', icon: '⚙️' }
     ];
@@ -72,8 +71,7 @@ export default class App {
 
     // Create navbar
     const navItems: NavItem[] = [
-      { text: 'Home', path: '/', icon: '🏠' },
-      { text: 'Dashboard', path: '/dashboard', icon: '📊' },
+      { text: 'Dashboard', path: '/', icon: '📊' },
       { text: 'Health', path: '/health', icon: '❤️' },
       { text: 'Settings', path: '/settings', icon: '⚙️' }
     ];

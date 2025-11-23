@@ -1,5 +1,56 @@
 import { Cat, Device, HealthEvent, ScreeningResult, Notification } from '../types';
 
+// Mock User
+export const mockUser = {
+  email: 'user@example.com',
+  name: 'John Doe'
+};
+
+// Mock Cleaning Cycles
+export const mockCleaningCycles = {
+  total: 145,
+  today: 3,
+  history: [
+    { date: '2024-11-09', count: 3 },
+    { date: '2024-11-08', count: 4 },
+    { date: '2024-11-07', count: 3 },
+    { date: '2024-11-06', count: 5 },
+    { date: '2024-11-05', count: 2 },
+    { date: '2024-11-04', count: 4 },
+    { date: '2024-11-03', count: 3 }
+  ]
+};
+
+// Mock Usage Data (in minutes)
+export const mockUsageData = [
+  { date: '2024-11-09', duration: 45 },
+  { date: '2024-11-08', duration: 60 },
+  { date: '2024-11-07', duration: 30 },
+  { date: '2024-11-06', duration: 55 },
+  { date: '2024-11-05', duration: 40 },
+  { date: '2024-11-04', duration: 50 },
+  { date: '2024-11-03', duration: 35 }
+];
+
+// Mock Anomalies
+export const mockAnomalies = [
+  {
+    id: 'anomaly-1',
+    timestamp: '2024-11-09T09:00:00Z',
+    description: 'Unusual consistency detected'
+  },
+  {
+    id: 'anomaly-2',
+    timestamp: '2024-11-07T14:30:00Z',
+    description: 'Extended duration in litter box'
+  },
+  {
+    id: 'anomaly-3',
+    timestamp: '2024-11-05T08:15:00Z',
+    description: 'Frequent visits detected'
+  }
+];
+
 // Mock Cats
 export const mockCats: Cat[] = [
   {
@@ -142,4 +193,8 @@ export function getUnreadNotifications(): Notification[] {
 
 export function getRecentEvents(limit: number = 5): HealthEvent[] {
   return mockHealthEvents.slice(0, limit);
+}
+
+export function getAnomalies(limit: number = 5) {
+  return mockAnomalies.slice(0, limit);
 }

@@ -4,13 +4,17 @@ import { Button } from '../components/Button';
 import { StatCard } from '../components/StatCard';
 import { EventCard } from '../components/EventCard';
 import { DeviceStatus } from '../components/DeviceStatus';
+import { UsageChart } from '../components/UsageChart';
 import { router } from '../utils/router';
 import { 
   mockCats, 
   mockDevices, 
   getTodayEvents, 
   getUnreadNotifications,
-  getRecentEvents 
+  getRecentEvents,
+  mockUser,
+  mockCleaningCycles,
+  getAnomalies
 } from '../services/mockData';
 
 export class DashboardPage extends Component {
@@ -27,7 +31,7 @@ export class DashboardPage extends Component {
     header.innerHTML = `
       <div>
         <h1 class="page-title">Dashboard</h1>
-        <p class="page-subtitle">Welcome back! Here's your pet health summary.</p>
+        <p class="page-subtitle">Welcome back, ${mockUser.email}</p>
       </div>
     `;
     page.appendChild(header);
@@ -41,9 +45,11 @@ export class DashboardPage extends Component {
 
     const stats = [
       new StatCard({
-        icon: '🐱',
-        label: 'Total Cats',
-        value: mockCats.length,
+        icon: '🧹',
+        label: 'Cleaning Cycles',
+        value: mockCleaningCycles.total,
+        trend: 'up',
+        trendValue: `+${mockCleaningCycles.today} today`,
         color: 'var(--primary-color)'
       }),
       new StatCard({
@@ -79,12 +85,12 @@ export class DashboardPage extends Component {
     const leftColumn = document.createElement('div');
     leftColumn.className = 'dashboard-column';
 
-    // Recent Events Card
-    const eventsCard = new Card({
-      title: '📅 Recent Events',
-      content: this.renderRecentEvents()
+    // Usage Chart Card
+    const usageCard = new Card({
+      title: '📈 Cleaning Frequency',
+      content: new UsageChart({ days: 7 }).render()
     });
-    eventsCard.mount(leftColumn);
+    usageCard.mount(leftColumn);
 
     // Quick Actions Card
     const actionsCard = new Card({
@@ -99,19 +105,12 @@ export class DashboardPage extends Component {
     const rightColumn = document.createElement('div');
     rightColumn.className = 'dashboard-column';
 
-    // Device Status Card
-    const deviceCard = new Card({
-      title: '🔧 Device Status',
-      content: this.renderDeviceStatus()
+    // Anomaly Detection History
+    const anomalyCard = new Card({
+      title: '⚠️ Anomaly Detection History',
+      content: this.renderAnomalies()
     });
-    deviceCard.mount(rightColumn);
-
-    // Cats Overview Card
-    const catsCard = new Card({
-      title: '🐱 Your Cats',
-      content: this.renderCatsOverview()
-    });
-    catsCard.mount(rightColumn);
+    anomalyCard.mount(rightColumn);
 
     contentGrid.appendChild(rightColumn);
     page.appendChild(contentGrid);
@@ -119,31 +118,29 @@ export class DashboardPage extends Component {
     return page;
   }
 
-  private renderRecentEvents(): HTMLElement {
+  private renderAnomalies(): HTMLElement {
     const container = document.createElement('div');
-    const events = getRecentEvents(5);
+    const anomalies = getAnomalies(5);
 
-    if (events.length === 0) {
-      container.innerHTML = '<p style="color: var(--gray-600); text-align: center; padding: 20px;">No recent events</p>';
+    if (anomalies.length === 0) {
+      container.innerHTML = '<p style="color: var(--gray-600); text-align: center; padding: 20px;">No anomalies detected</p>';
       return container;
     }
 
-    events.forEach(event => {
-      const eventCard = new EventCard({
-        event,
-        onClick: () => router.navigate(`/health/events/${event.id}`)
-      });
-      eventCard.mount(container);
+    anomalies.forEach(anomaly => {
+      const item = document.createElement('div');
+      item.className = 'anomaly-item';
+      item.style.padding = '12px';
+      item.style.borderBottom = '1px solid var(--gray-200)';
+      item.innerHTML = `
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+          <span style="font-weight: 500; color: var(--danger-color);">⚠️ Issue Detected</span>
+          <span style="font-size: 0.85rem; color: var(--gray-500);">${new Date(anomaly.timestamp).toLocaleDateString()}</span>
+        </div>
+        <div style="color: var(--gray-700);">${anomaly.description}</div>
+      `;
+      container.appendChild(item);
     });
-
-    const viewAllBtn = new Button({
-      text: 'View All Events',
-      variant: 'outline',
-      onClick: () => router.navigate('/health')
-    });
-    viewAllBtn.element.style.marginTop = '16px';
-    viewAllBtn.element.style.width = '100%';
-    viewAllBtn.mount(container);
 
     return container;
   }
@@ -184,38 +181,6 @@ export class DashboardPage extends Component {
       });
       btn.element.style.width = '100%';
       btn.mount(container);
-    });
-
-    return container;
-  }
-
-  private renderDeviceStatus(): HTMLElement {
-    const container = document.createElement('div');
-    
-    mockDevices.forEach(device => {
-      const deviceStatus = new DeviceStatus({ device });
-      deviceStatus.mount(container);
-    });
-
-    return container;
-  }
-
-  private renderCatsOverview(): HTMLElement {
-    const container = document.createElement('div');
-    container.className = 'cats-overview';
-
-    mockCats.forEach(cat => {
-      const catCard = document.createElement('div');
-      catCard.className = 'cat-overview-card';
-      catCard.innerHTML = `
-        <div class="cat-photo">${cat.photoUrl}</div>
-        <div class="cat-info">
-          <div class="cat-name">${cat.name}</div>
-          <div class="cat-breed">${cat.breed || 'Mixed'}</div>
-          <div class="cat-weight">${cat.weight} kg</div>
-        </div>
-      `;
-      container.appendChild(catCard);
     });
 
     return container;
